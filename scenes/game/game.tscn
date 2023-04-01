@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scenes/game/tile_map.gd" id="2_rdtl1"]
 [ext_resource type="Texture2D" uid="uid://dqis6vwyl34b6" path="res://textures/spikes.png" id="2_t80uw"]
 [ext_resource type="PackedScene" uid="uid://gqld7sm0k0sp" path="res://objects/spikes/spikes.tscn" id="4_yv7r1"]
-[ext_resource type="PackedScene" uid="uid://b6w4vtnb4shfi" path="res://objects/dead_player/dead_player.tscn" id="6_uxkvt"]
+[ext_resource type="PackedScene" uid="uid://bjipjyerigufs" path="res://objects/checkpoint/checkpoint.tscn" id="7_gj3gm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_buiy0"]
 texture = ExtResource("1_l416u")
@@ -143,12 +143,15 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(720897, 1, 0, 720898, 1, 0, 720899, 1, 0)
+layer_1/tile_data = PackedInt32Array(720898, 1, 0)
 script = ExtResource("2_rdtl1")
 _spikes = ExtResource("4_yv7r1")
 
-[node name="Player" parent="." instance=ExtResource("2_75kfi")]
-position = Vector2(293, 360)
+[node name="DeadPlayersGroup" type="Node" parent="TileMap"]
 
-[node name="DeadPlayer" parent="." instance=ExtResource("6_uxkvt")]
-position = Vector2(-94, 584)
+[node name="Checkpoint" parent="." instance=ExtResource("7_gj3gm")]
+position = Vector2(-185.238, 703.886)
+
+[node name="Player" parent="." node_paths=PackedStringArray("_dead_players_group") instance=ExtResource("2_75kfi")]
+position = Vector2(-6.50934, 591.9)
+_dead_players_group = NodePath("../TileMap/DeadPlayersGroup")

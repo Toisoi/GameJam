@@ -1,8 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
-@export var animated_sprite: AnimatedSprite2D
-@export var _collision_shape: CollisionShape2D
+@export var _animated_sprite: AnimatedSprite2D
+
+@export var _dead_players_group: Node
 
 @export var _dead_player: PackedScene
 
@@ -13,6 +14,10 @@ class_name Player
 @export var gravity = 9.8
 
 var checpoint_position: Vector2
+
+func _ready():
+	checpoint_position = global_position
+
 
 func get_axis() -> float:
 	return Input.get_axis("move_left", "move_right")
@@ -33,16 +38,21 @@ func move() -> void:
 func flip() -> void:
 	var axis = get_axis()
 	if axis > 0:
-		animated_sprite.flip_h = false
+		_animated_sprite.flip_h = false
 	elif axis < 0:
-		animated_sprite.flip_h = true
+		_animated_sprite.flip_h = true
+
+
+func play_animation(animation: StringName) -> void:
+	if _animated_sprite.animation != "hit":
+		_animated_sprite.play(animation)
 
 
 func die() -> void:
-	_collision_shape.disabled = true
-	
-	animated_sprite.play("hit")
-	await animated_sprite.animation_finished
-	
+	_animated_sprite.play("hit")
+	await _animated_sprite.animation_finished
 	var dead_player = _dead_player.instantiate()
-	dead_player.position = position
+	dead_player.global_position = global_position
+	_dead_players_group.add_child(dead_player)
+	
+	global_position = checpoint_position

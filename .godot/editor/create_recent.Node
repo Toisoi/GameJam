@@ -1,7 +1,10 @@
+Sprite2D
+Node
+Node2D
+AnimatedSprite2D
 AnimationPlayer
 Label
 CPUParticles2D
-Sprite2D
 MeshInstance3D
 SubViewport
 CPUParticles3D
@@ -9,9 +12,7 @@ MeshInstance2D
 Camera3D
 Node3D
 Camera2D
-Node2D
 CollisionShape2D
-AnimatedSprite2D
 Area2D
 CharacterBody2D
 RigidBody2D

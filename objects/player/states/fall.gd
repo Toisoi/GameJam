@@ -5,7 +5,7 @@ var _timer: SceneTreeTimer
 var _fall_jump = false
 
 func enter(args := {}):
-	player.animated_sprite.play("fall")
+	player.play_animation("fall")
 	
 	_timer = get_tree().create_timer(player.fall_jump_timer)
 	_timer.timeout.connect(_timeout)

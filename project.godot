@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="game_jam"
+config/name="Death - Not End"
 run/main_scene="res://scenes/game/game.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"

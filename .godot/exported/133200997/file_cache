@@ -1,0 +1,5 @@
+res://objects/checkpoint/checkpoint.tscn::0baeb2a49b61d5247a2db8918cc6fee2::1680357817::res://.godot/exported/133200997/export-ce4c2f214b4d6804e63ae4c864bdfacd-checkpoint.scn
+res://objects/dead_player/dead_player.tscn::3ce5248be9347220ed7d6dde69fe0818::1680357330::res://.godot/exported/133200997/export-580313d3b202985269ed303225a6a497-dead_player.scn
+res://objects/player/player.tscn::948f64f31f84f9c88ac4068acaa5fff4::1680357330::res://.godot/exported/133200997/export-af43f1489f8ddd2e3337968c398c1c3c-player.scn
+res://objects/spikes/spikes.tscn::19327ed82c1327326b535e8a8419a073::1680357330::res://.godot/exported/133200997/export-52dfa026f85e266eff52a1141cf3c773-spikes.scn
+res://scenes/game/game.tscn::68bf827a3a6c8ac637cd6ce4106d7b03::1680357330::res://.godot/exported/133200997/export-69e963a49695dd4030e5c61a12b8ddfe-game.scn

@@ -8,12 +8,14 @@ size = Vector2(64, 64)
 
 [node name="DeadPlayer" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_no4gm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_685q0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_8dyck")

@@ -1,7 +1,7 @@
 extends PlayerState
 
 func enter(_args := {}):
-	player.animated_sprite.play("run")
+	player.play_animation("run")
 
 
 func physics_update(_delta):

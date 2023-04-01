@@ -1,7 +1,7 @@
 extends PlayerState
 
 func enter(_args := {}):
-	player.animated_sprite.play("jump")
+	player.play_animation("jump")
 	
 	player.velocity.y = -player.jump_strength
 	player.move_and_slide()
