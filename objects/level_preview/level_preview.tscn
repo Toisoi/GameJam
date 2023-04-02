@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bhabv1mvdp0qk"]
+
+[node name="LevelPreview" type="TextureRect"]
+custom_minimum_size = Vector2(768, 432)
+offset_right = 768.0
+offset_bottom = 432.0
+expand_mode = 1
+stretch_mode = 4

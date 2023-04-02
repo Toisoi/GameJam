@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Death - Not End"
-run/main_scene="res://scenes/sample/game.tscn"
+run/main_scene="res://scenes/menu/menu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Data="*res://scripts/data.gd"
 
 [display]
 
@@ -23,9 +27,9 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="game_jam"
 
-[editor_plugins]
+[gui]
 
-enabled=PackedStringArray()
+theme/custom_font="res://resources/fonts/font.ttf"
 
 [input]
 

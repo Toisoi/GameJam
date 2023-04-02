@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dwyiacu1o5fvu"]
+
+[ext_resource type="Texture2D" uid="uid://dax1xmjcob5gs" path="res://textures/ui/checked.png" id="1_r3nw2"]
+[ext_resource type="Texture2D" uid="uid://d1exjqjwhyswa" path="res://textures/ui/unchecked.png" id="2_mt3dt"]
+[ext_resource type="Texture2D" uid="uid://bqehx2sna81vo" path="res://textures/ui/grabber.png" id="3_k1dr5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8tgcp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpjhg"]
+bg_color = Color(0.14902, 0.545098, 0.690196, 1)
+corner_radius_top_left = 4
+corner_radius_bottom_left = 4
+
+[resource]
+CheckBox/icons/checked = ExtResource("1_r3nw2")
+CheckBox/icons/unchecked = ExtResource("2_mt3dt")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_8tgcp")
+HSlider/icons/grabber = ExtResource("3_k1dr5")
+HSlider/icons/grabber_highlight = ExtResource("3_k1dr5")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_wpjhg")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_wpjhg")
