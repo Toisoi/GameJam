@@ -11,4 +11,3 @@ layer_1/tile_data = PackedInt32Array(589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 5
 
 [node name="Player" parent="." index="3"]
 position = Vector2(246, 424)
-jump_strength = 150

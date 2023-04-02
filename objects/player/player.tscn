@@ -306,7 +306,7 @@ _dead_player = ExtResource("2_omnb6")
 jump_sound = ExtResource("3_ernil")
 hit_sound = ExtResource("4_vq6aq")
 move_speed = 400
-jump_strength = 400
+jump_strength = 200
 fall_jump_timer = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
