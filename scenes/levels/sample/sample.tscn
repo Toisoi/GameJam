@@ -318,7 +318,6 @@ theme_override_font_sizes/font_size = 32
 text = "Fruits left: %d"
 
 [node name="LooseLabel" type="RichTextLabel" parent="CanvasLayer2"]
-visible = false
 custom_minimum_size = Vector2(1152, 150)
 anchors_preset = 14
 anchor_top = 0.5
@@ -330,6 +329,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 120
 bbcode_enabled = true
 text = "[center]loose text[/center]"
+fit_content = true
 scroll_active = false
 
 [node name="WinLabel" type="RichTextLabel" parent="CanvasLayer2"]
@@ -347,6 +347,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 120
 bbcode_enabled = true
 text = "[center][rainbow freq=0.5 sat=0.5]win text[/rainbow][/center]"
+fit_content = true
 scroll_active = false
 
 [node name="FadeTransition" parent="CanvasLayer2" instance=ExtResource("12_d1qbc")]
