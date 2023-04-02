@@ -321,6 +321,11 @@ shape = SubResource("RectangleShape2D_33nlx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -16)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_left_margin = 0.1
+drag_right_margin = 0.1
+editor_draw_drag_margin = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
