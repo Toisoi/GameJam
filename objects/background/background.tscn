@@ -1,0 +1,22 @@
+[gd_scene load_steps=9 format=3 uid="uid://8ye5vf2oeqbp"]
+
+[ext_resource type="Script" path="res://objects/background/background.gd" id="1_1jcwp"]
+[ext_resource type="Texture2D" uid="uid://vi1ile10ptyi" path="res://textures/backgrounds/blue.png" id="2_rhjec"]
+[ext_resource type="Texture2D" uid="uid://bakc7n6wt7jy2" path="res://textures/backgrounds/brown.png" id="3_ttbl5"]
+[ext_resource type="Texture2D" uid="uid://tekrriyh3nx2" path="res://textures/backgrounds/gray.png" id="4_pak5d"]
+[ext_resource type="Texture2D" uid="uid://bglqswrhf0ubl" path="res://textures/backgrounds/green.png" id="5_str6a"]
+[ext_resource type="Texture2D" uid="uid://bt2bl2a62qi5a" path="res://textures/backgrounds/pink.png" id="6_oa6vk"]
+[ext_resource type="Texture2D" uid="uid://bubmpfjucsttc" path="res://textures/backgrounds/purple.png" id="7_aado5"]
+[ext_resource type="Texture2D" uid="uid://ce5rkcj7m8psg" path="res://textures/backgrounds/yellow.png" id="8_fg3bb"]
+
+[node name="Background" type="CanvasLayer"]
+layer = -1
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_repeat = 2
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 648)
+script = ExtResource("1_1jcwp")
+_backgrounds = Array[Texture]([ExtResource("2_rhjec"), ExtResource("3_ttbl5"), ExtResource("4_pak5d"), ExtResource("5_str6a"), ExtResource("6_oa6vk"), ExtResource("7_aado5"), ExtResource("8_fg3bb")])
+_move_speed = 50

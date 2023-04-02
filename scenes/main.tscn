@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp140n2vejqvk"]
+[gd_scene load_steps=4 format=3 uid="uid://dojyd2q6wchvm"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3u41r"]
 [ext_resource type="Script" path="res://addons/BTransition/Transitioner.gd" id="2_r7hl6"]

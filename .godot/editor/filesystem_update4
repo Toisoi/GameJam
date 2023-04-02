@@ -22,3 +22,6 @@ res://objects/player/states/fall.gd
 res://objects/player/states/idle.gd
 res://scenes/sample/game.tscn
 res://scenes/menu/menu.tscn
+res://scenes/main.tscn
+res://objects/background/background.tscn
+res://scenes/sample/game.gd

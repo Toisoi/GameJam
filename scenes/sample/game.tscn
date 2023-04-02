@@ -1,17 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://boxlgcl6cquyq"]
+[gd_scene load_steps=19 format=3 uid="uid://dr3dy0m342m5y"]
 
 [ext_resource type="Script" path="res://scenes/sample/game.gd" id="1_i6l1i"]
 [ext_resource type="AudioStream" uid="uid://6rf0styjhuru" path="res://resources/sounds/button.wav" id="2_3sitx"]
 [ext_resource type="AudioStream" uid="uid://bqimdv6u3gapc" path="res://resources/sounds/checkpoint.wav" id="3_yture"]
-[ext_resource type="Script" path="res://scenes/sample/background.gd" id="4_pfik1"]
-[ext_resource type="Texture2D" uid="uid://vi1ile10ptyi" path="res://textures/backgrounds/blue.png" id="5_lumk2"]
-[ext_resource type="Texture2D" uid="uid://bakc7n6wt7jy2" path="res://textures/backgrounds/brown.png" id="6_7rwuq"]
-[ext_resource type="Texture2D" uid="uid://tekrriyh3nx2" path="res://textures/backgrounds/gray.png" id="7_nhji8"]
-[ext_resource type="Texture2D" uid="uid://bglqswrhf0ubl" path="res://textures/backgrounds/green.png" id="8_fw3kb"]
-[ext_resource type="Texture2D" uid="uid://bt2bl2a62qi5a" path="res://textures/backgrounds/pink.png" id="9_u5bwi"]
-[ext_resource type="Texture2D" uid="uid://bubmpfjucsttc" path="res://textures/backgrounds/purple.png" id="10_ldfx6"]
-[ext_resource type="Texture2D" uid="uid://ce5rkcj7m8psg" path="res://textures/backgrounds/yellow.png" id="11_bx4j0"]
-[ext_resource type="Texture2D" uid="uid://bqrr36d5fndro" path="res://textures/ui/restart_button.png" id="12_v8gxf"]
+[ext_resource type="PackedScene" uid="uid://8ye5vf2oeqbp" path="res://objects/background/background.tscn" id="4_4fo7s"]
+[ext_resource type="Texture2D" uid="uid://bqrr36d5fndro" path="res://textures/ui/restart.png" id="12_clnbc"]
 [ext_resource type="Script" path="res://scenes/sample/restart_button.gd" id="13_6koty"]
 [ext_resource type="Texture2D" uid="uid://c4ojcl1kaduhk" path="res://textures/terrain_tileset.png" id="14_dn3mj"]
 [ext_resource type="Texture2D" uid="uid://bkxydf6nkkpj6" path="res://textures/spikes.png" id="15_d8mfb"]
@@ -289,17 +282,7 @@ audio_player = NodePath("SoundPlayer")
 button_sound = ExtResource("2_3sitx")
 checkpoint_sound = ExtResource("3_yture")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Background" type="Sprite2D" parent="CanvasLayer"]
-texture_repeat = 2
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 1152, 648)
-script = ExtResource("4_pfik1")
-_backgrounds = Array[Texture]([ExtResource("5_lumk2"), ExtResource("6_7rwuq"), ExtResource("7_nhji8"), ExtResource("8_fw3kb"), ExtResource("9_u5bwi"), ExtResource("10_ldfx6"), ExtResource("11_bx4j0")])
-_move_speed = 50
+[node name="Background" parent="." instance=ExtResource("4_4fo7s")]
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -312,7 +295,7 @@ offset_right = -63.0
 offset_bottom = 22.0
 grow_horizontal = 0
 scale = Vector2(4, 4)
-texture_normal = ExtResource("12_v8gxf")
+texture_normal = ExtResource("12_clnbc")
 script = ExtResource("13_6koty")
 
 [node name="TileMap" type="TileMap" parent="."]

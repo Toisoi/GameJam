@@ -1,9 +1,12 @@
+TextureRect
+MarginContainer
+HBoxContainer
+TextureButton
+VBoxContainer
 AudioStreamPlayer
 AnimationPlayer
 Sprite2D
 CanvasLayer
-TextureButton
-TextureRect
 CanvasModulate
 CollisionPolygon2D
 CharacterBody2D
