@@ -17,7 +17,8 @@ class_name Player
 @export var fall_jump_timer = 0.1
 @export var gravity = 9.8
 
-var collide_with_trap = false
+@onready var level: Level = owner
+
 var dead = false
 var checpoint_position: Vector2
 
@@ -63,6 +64,7 @@ func die() -> void:
 	_animated_sprite.play("hit")
 	play_sound(hit_sound)
 	
+	level.lives_left -= 1
 	dead = true
 	
 	await _animated_sprite.animation_finished
@@ -75,5 +77,4 @@ func die() -> void:
 	global_position = checpoint_position
 	_animated_sprite.play("idle")
 	
-	collide_with_trap = false
 	dead = false

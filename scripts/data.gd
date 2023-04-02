@@ -3,13 +3,14 @@ extends Node
 const _DATA_SAVE = "user://save.data"
 
 var music = 1.0
-var sound = 1.0
+var sound = 0.8
 var full_screen = false
 
 var levels_completed = 0
 
 func _ready():
-	_load()
+	if FileAccess.file_exists(_DATA_SAVE):
+		_load()
 
 
 func save() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://coyqbgngudffu"]
+[gd_scene load_steps=17 format=3 uid="uid://bbbg11lp7t43o"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_aqfx1"]
 [ext_resource type="PackedScene" uid="uid://8ye5vf2oeqbp" path="res://objects/background/background.tscn" id="1_qclrb"]
@@ -6,14 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://n0r57kd64tts" path="res://textures/ui/previous.png" id="2_h0jtf"]
 [ext_resource type="Texture2D" uid="uid://b0yt8fb7843j4" path="res://textures/levels/1.png" id="2_s3sd0"]
 [ext_resource type="PackedScene" uid="uid://bhabv1mvdp0qk" path="res://objects/level_preview/level_preview.tscn" id="2_ygbgw"]
+[ext_resource type="Texture2D" uid="uid://cjer0qnv1qr11" path="res://textures/levels/2.png" id="3_ehx2u"]
 [ext_resource type="Texture2D" uid="uid://dydspa8leupbs" path="res://textures/ui/play.png" id="3_qdro4"]
+[ext_resource type="Texture2D" uid="uid://cc3msabeh0eko" path="res://textures/levels/3.png" id="4_0loie"]
 [ext_resource type="Texture2D" uid="uid://obif3i8p32b3" path="res://textures/ui/next.png" id="4_88w6v"]
 [ext_resource type="Theme" uid="uid://dwyiacu1o5fvu" path="res://resources/themes/theme.tres" id="8_3p56f"]
 [ext_resource type="Texture2D" uid="uid://b66qhvy4jo1jj" path="res://textures/ui/back.png" id="8_45thl"]
 [ext_resource type="Script" path="res://scenes/menu/music_slider.gd" id="10_ul51h"]
 [ext_resource type="Script" path="res://scenes/menu/sound_slider.gd" id="11_70wu6"]
+[ext_resource type="AudioStream" uid="uid://6rf0styjhuru" path="res://resources/sounds/button.wav" id="14_6o7el"]
+[ext_resource type="PackedScene" uid="uid://pojmf4m23i0" path="res://addons/fade_transition/fade_transition.tscn" id="14_66wsa"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("_preview_textures", "_menu", "_level_container", "_settings")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("_preview_textures", "_menu", "_level_container", "_settings", "sound_player", "_fade")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,8 +29,10 @@ _preview_textures = NodePath("Menu/PreviewTextures")
 _menu = NodePath("Menu")
 _level_container = NodePath("Menu/PreviewTextures/Container")
 _settings = NodePath("Settings")
-_levels = Array[String](["res://scenes/levels/sample/sample.tscn"])
-_level_textures = Array[Texture]([ExtResource("2_s3sd0")])
+sound_player = NodePath("SoundPlayer")
+_fade = NodePath("FadeTransition")
+_levels = Array[String](["res://scenes/levels/1.tscn", "res://scenes/levels/2.tscn", "res://scenes/levels/3.tscn"])
+_level_textures = Array[Texture]([ExtResource("2_s3sd0"), ExtResource("3_ehx2u"), ExtResource("4_0loie")])
 _level_preview = ExtResource("2_ygbgw")
 
 [node name="Background" parent="." instance=ExtResource("1_qclrb")]
@@ -181,7 +187,7 @@ script = ExtResource("10_ul51h")
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
-text = "music"
+text = "sound"
 
 [node name="SoundSlider" type="HSlider" parent="Settings/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -191,15 +197,19 @@ step = 0.01
 value = 1.0
 script = ExtResource("11_70wu6")
 
-[node name="FullscreenCheckBox" type="CheckBox" parent="Settings/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("8_3p56f")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-text = "fullscreen"
+[node name="FadeTransition" parent="." instance=ExtResource("14_66wsa")]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+default_cover_duration = 1.5
+cover_transition = 0
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_6o7el")
 
 [connection signal="pressed" from="Menu/PreviousButton" to="." method="_on_previous_button_pressed"]
 [connection signal="pressed" from="Menu/PlayButton" to="." method="_on_play_button_pressed"]
@@ -208,3 +218,4 @@ text = "fullscreen"
 [connection signal="pressed" from="Settings/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/MusicSlider" to="Settings/MarginContainer/VBoxContainer/MusicSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/SoundSlider" to="Settings/MarginContainer/VBoxContainer/SoundSlider" method="_on_value_changed"]
+[connection signal="cover_done" from="FadeTransition" to="." method="_on_cover_done"]

@@ -1,3 +1,4 @@
+AudioStreamPlayer
 TextureRect
 TextureButton
 CheckBox
@@ -14,7 +15,6 @@ ReferenceRect
 HFlowContainer
 AnimationPlayer
 Panel
-AudioStreamPlayer
 Sprite2D
 CanvasLayer
 CanvasModulate

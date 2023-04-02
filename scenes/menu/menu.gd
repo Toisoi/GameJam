@@ -1,9 +1,12 @@
 extends Control
+class_name Menu
 
 @export var _preview_textures: ScrollContainer
 @export var _menu: Control
 @export var _level_container: HBoxContainer
 @export var _settings: Control
+@export var sound_player: AudioStreamPlayer
+@export var _fade: FadeTransition
 
 @export var _levels: Array[String]
 @export var _level_textures: Array[Texture]
@@ -27,25 +30,31 @@ func _ready():
 
 
 func _on_previous_button_pressed():
+	sound_player.play()
+	
 	if _selected_level > 0:
 		_selected_level -= 1
 		_switch_level()
-	print(_selected_level)
 
 
 func _on_next_button_pressed():
+	sound_player.play()
+	
 	if _selected_level < _levels.size() - 1:
 		_selected_level += 1
 		_switch_level()
-	print(_selected_level)
 
 
 func _on_play_button_pressed():
-	get_tree().change_scene_to_file(_levels[_selected_level])
-
+	sound_player.play()
+	await sound_player.finished
+	
+	_fade.cover()
 
 
 func _on_settings_button_pressed():
+	sound_player.play()
+	
 	var screen_width = get_viewport().size.x
 	
 	var tween = create_tween().set_parallel()
@@ -56,6 +65,8 @@ func _on_settings_button_pressed():
 
 
 func _on_back_button_pressed():
+	sound_player.play()
+	
 	var screen_width = get_viewport().size.x
 	
 	var tween = create_tween().set_parallel()
@@ -70,3 +81,7 @@ func _switch_level() -> void:
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUART)
 	tween.tween_property(_preview_textures, "scroll_horizontal", _selected_level * _LEVEL_SWITCH, _level_switch_time)
+
+
+func _on_cover_done():
+	get_tree().change_scene_to_file(_levels[_selected_level])

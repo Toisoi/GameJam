@@ -1,7 +1,7 @@
 extends Area2D
 
 func _on_body_entered(player: Player):
-	if not player.collide_with_trap:
-		player.collide_with_trap = true
+	if not player.dead:
+		player.dead = true
 		
 		player.die()

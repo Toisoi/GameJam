@@ -22,7 +22,7 @@ func exit():
 func physics_update(_delta):
 	super.physics_update(_delta)
 	
-	if not player.dead:
+	if not player.dead and player.level.lives_left > 0:
 		player.apply_movement()
 		
 		player.flip()

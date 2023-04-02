@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dwv8vxjudac5g"]
+[gd_scene load_steps=52 format=3 uid="uid://dwv8vxjudac5g"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_ycuoc"]
 [ext_resource type="PackedScene" uid="uid://b6w4vtnb4shfi" path="res://objects/dead_player/dead_player.tscn" id="2_omnb6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/state_machine.gd" id="4_01ocr"]
 [ext_resource type="AudioStream" uid="uid://rjq78eyvcyxg" path="res://resources/sounds/hit.wav" id="4_vq6aq"]
 [ext_resource type="Script" path="res://objects/player/states/idle.gd" id="5_p1gsa"]
+[ext_resource type="Script" path="res://objects/player/sound_player.gd" id="6_cn4xl"]
 [ext_resource type="Script" path="res://objects/player/states/fall.gd" id="7_rcq2m"]
 [ext_resource type="Script" path="res://objects/player/states/run.gd" id="9_tohaa"]
 [ext_resource type="Script" path="res://objects/player/states/jump.gd" id="10_81xwt"]
@@ -301,7 +302,7 @@ scale = Vector2(4, 4)
 collision_mask = 14
 script = ExtResource("1_ycuoc")
 _animated_sprite = NodePath("AnimatedSprite2D")
-_audio_player = NodePath("AudioStreamPlayer")
+_audio_player = NodePath("SoundPlayer")
 _dead_player = ExtResource("2_omnb6")
 jump_sound = ExtResource("3_ernil")
 hit_sound = ExtResource("4_vq6aq")
@@ -327,7 +328,8 @@ drag_left_margin = 0.1
 drag_right_margin = 0.1
 editor_draw_drag_margin = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("6_cn4xl")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_state")]
 script = ExtResource("4_01ocr")

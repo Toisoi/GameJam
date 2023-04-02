@@ -4,6 +4,6 @@ extends TextureButton
 
 func _on_pressed():
 	_level.play_sound(_level.button_sound)
-	await _level.audio_player.finished
+	await _level.sound_player.finished
 	
 	get_tree().reload_current_scene()
