@@ -1,8 +1,12 @@
+AudioStreamPlayer2D
+Label
+CollisionShape2D
+AnimatedSprite2D
+Area2D
 AudioStreamPlayer
 TextureRect
 TextureButton
 CheckBox
-Label
 MarginContainer
 VBoxContainer
 HSlider
@@ -23,10 +27,7 @@ CharacterBody2D
 StaticBody2D
 Node
 Node2D
-AnimatedSprite2D
 CPUParticles2D
 MeshInstance3D
 SubViewport
 CPUParticles3D
-MeshInstance2D
-Camera3D

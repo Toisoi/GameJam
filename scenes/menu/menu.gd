@@ -50,6 +50,8 @@ func _on_play_button_pressed():
 	await sound_player.finished
 	
 	_fade.cover()
+	await _fade.cover_done
+	get_tree().change_scene_to_file(_levels[_selected_level])
 
 
 func _on_settings_button_pressed():
@@ -81,7 +83,3 @@ func _switch_level() -> void:
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUART)
 	tween.tween_property(_preview_textures, "scroll_horizontal", _selected_level * _LEVEL_SWITCH, _level_switch_time)
-
-
-func _on_cover_done():
-	get_tree().change_scene_to_file(_levels[_selected_level])

@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bdfuvd1j8jwnc" path="res://scenes/levels/sample/sample.tscn" id="1_7xvnb"]
 
 [node name="Level1" instance=ExtResource("1_7xvnb")]
-lives_left = 3
+_next_level = "res://scenes/levels/2.tscn"
+fruits_left = 1
 metadata/_edit_horizontal_guides_ = [5.0]
 
 [node name="TileMap" parent="." index="2"]

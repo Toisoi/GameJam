@@ -269,16 +269,18 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_buiy0")
 sources/1 = SubResource("TileSetAtlasSource_ya6es")
 
-[node name="Sample" type="Node2D" node_paths=PackedStringArray("sound_player", "_lives_label", "_fruits_label", "_loose_label", "_fade")]
+[node name="Sample" type="Node2D" node_paths=PackedStringArray("sound_player", "_lives_label", "_fruits_label", "_loose_label", "_win_label", "_fade")]
 script = ExtResource("1_fbha7")
 sound_player = NodePath("SoundPlayer")
 _lives_label = NodePath("CanvasLayer2/LivesLabel")
 _fruits_label = NodePath("CanvasLayer2/FruitsLabel")
 _loose_label = NodePath("CanvasLayer2/LooseLabel")
+_win_label = NodePath("CanvasLayer2/WinLabel")
 _fade = NodePath("CanvasLayer2/FadeTransition")
 button_sound = ExtResource("2_ffbs7")
 checkpoint_sound = ExtResource("3_qn7if")
 _loose_texts = Array[String](["you die", "try again", "one more time"])
+_win_texts = Array[String](["you did it!", "win!", "next level."])
 lives_left = 2
 
 [node name="Background" parent="." instance=ExtResource("4_mud38")]
@@ -333,6 +335,24 @@ theme_override_font_sizes/font_size = 128
 text = "loose text"
 horizontal_alignment = 1
 
+[node name="WinLabel" type="Label" parent="CanvasLayer2"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -303.0
+offset_top = -89.0
+offset_right = 303.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "win text"
+horizontal_alignment = 1
+
 [node name="FadeTransition" parent="CanvasLayer2" instance=ExtResource("12_d1qbc")]
 custom_minimum_size = Vector2(1152, 648)
 offset_left = -576.0
@@ -373,4 +393,3 @@ stream = ExtResource("2_ffbs7")
 script = ExtResource("14_4op41")
 
 [connection signal="pressed" from="CanvasLayer2/RestartButton" to="CanvasLayer2/RestartButton" method="_on_pressed"]
-[connection signal="cover_done" from="CanvasLayer2/FadeTransition" to="." method="_on_cover_done"]

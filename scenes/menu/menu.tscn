@@ -218,4 +218,3 @@ stream = ExtResource("14_6o7el")
 [connection signal="pressed" from="Settings/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/MusicSlider" to="Settings/MarginContainer/VBoxContainer/MusicSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Settings/MarginContainer/VBoxContainer/SoundSlider" to="Settings/MarginContainer/VBoxContainer/SoundSlider" method="_on_value_changed"]
-[connection signal="cover_done" from="FadeTransition" to="." method="_on_cover_done"]
