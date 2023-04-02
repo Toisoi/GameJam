@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dwv8vxjudac5g"]
+[gd_scene load_steps=54 format=3 uid="uid://dwv8vxjudac5g"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_ycuoc"]
 [ext_resource type="PackedScene" uid="uid://b6w4vtnb4shfi" path="res://objects/dead_player/dead_player.tscn" id="2_omnb6"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://objects/player/states/jump.gd" id="10_81xwt"]
 [ext_resource type="Script" path="res://objects/player/states/fall_jump.gd" id="10_y3vye"]
 [ext_resource type="Script" path="res://objects/player/states/double_jump.gd" id="11_4jm6b"]
+[ext_resource type="Texture2D" uid="uid://qmth33huyh4s" path="res://textures/dust_particle.png" id="14_v5176"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ge6d0"]
 atlas = ExtResource("3_crhkd")
@@ -297,12 +298,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33nlx"]
 size = Vector2(19.5, 24)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_animated_sprite", "_audio_player")]
+[sub_resource type="Gradient" id="Gradient_3nxlq"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_animated_sprite", "_audio_player", "move_particles", "jump_particles", "jump_particles_2")]
 scale = Vector2(4, 4)
 collision_mask = 14
 script = ExtResource("1_ycuoc")
 _animated_sprite = NodePath("AnimatedSprite2D")
 _audio_player = NodePath("SoundPlayer")
+move_particles = NodePath("MoveParticles")
+jump_particles = NodePath("JumpParticles")
+jump_particles_2 = NodePath("JumpParticles2")
 _dead_player = ExtResource("2_omnb6")
 jump_sound = ExtResource("3_ernil")
 hit_sound = ExtResource("4_vq6aq")
@@ -352,3 +359,53 @@ script = ExtResource("10_81xwt")
 
 [node name="DoubleJump" type="Node" parent="StateMachine"]
 script = ExtResource("11_4jm6b")
+
+[node name="MoveParticles" type="CPUParticles2D" parent="."]
+position = Vector2(-6.92448, -0.500565)
+emitting = false
+amount = 3
+lifetime = 0.4
+explosiveness = 1.0
+texture = ExtResource("14_v5176")
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 60.0
+tangential_accel_min = 30.0
+tangential_accel_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_3nxlq")
+
+[node name="JumpParticles" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("14_v5176")
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+tangential_accel_min = 30.0
+tangential_accel_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_3nxlq")
+
+[node name="JumpParticles2" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("14_v5176")
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+tangential_accel_min = 30.0
+tangential_accel_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_3nxlq")

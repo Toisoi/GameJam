@@ -2,6 +2,11 @@ extends PlayerState
 
 func enter(_args := {}):
 	player.play_animation("run")
+	player.move_particles.emitting = true
+
+
+func exit():
+	player.move_particles.emitting = false
 
 
 func physics_update(_delta):

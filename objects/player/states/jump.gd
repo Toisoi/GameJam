@@ -2,6 +2,7 @@ extends PlayerState
 
 func enter(_args := {}):
 	player.play_animation("jump")
+	player.jump_particles.emitting = true
 	player.play_sound(player.jump_sound)
 	
 	player.velocity.y = -player.jump_strength

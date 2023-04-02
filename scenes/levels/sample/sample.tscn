@@ -279,8 +279,8 @@ _win_label = NodePath("CanvasLayer2/WinLabel")
 _fade = NodePath("CanvasLayer2/FadeTransition")
 button_sound = ExtResource("2_ffbs7")
 checkpoint_sound = ExtResource("3_qn7if")
-_loose_texts = Array[String](["you die", "try again", "one more time"])
-_win_texts = Array[String](["you did it!", "win!", "next level."])
+_loose_texts = Array[String](["Not quite there yet.", "Try again.", "Keep going!", "One more time.", "Give it another shot.", "Almost got it!", "Keep pushing.", "Let's try that again.", "Don't give up.", "You can do better.", "Practice makes perfect."])
+_win_texts = Array[String](["You win!", "You nailed it!", "Way to go!", "Excellent work!", "Perfect!", "Bravo!", "Amazing job!", "You crushed it!", "Fantastic!", "Top-notch!", "You're a champion!"])
 lives_left = 2
 
 [node name="Background" parent="." instance=ExtResource("4_mud38")]
@@ -306,7 +306,7 @@ offset_right = 237.0
 offset_bottom = 68.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "lives label: %d"
+text = "Lives label: %d"
 
 [node name="FruitsLabel" type="Label" parent="CanvasLayer2"]
 offset_left = 20.0
@@ -315,43 +315,39 @@ offset_right = 229.0
 offset_bottom = 136.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "fruits left: %d"
+text = "Fruits left: %d"
 
-[node name="LooseLabel" type="Label" parent="CanvasLayer2"]
+[node name="LooseLabel" type="RichTextLabel" parent="CanvasLayer2"]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
+custom_minimum_size = Vector2(1152, 150)
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -303.0
-offset_top = -89.0
-offset_right = 303.0
-offset_bottom = 89.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 128
-text = "loose text"
-horizontal_alignment = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[center]loose text[/center]"
+scroll_active = false
 
-[node name="WinLabel" type="Label" parent="CanvasLayer2"]
+[node name="WinLabel" type="RichTextLabel" parent="CanvasLayer2"]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
+custom_minimum_size = Vector2(1152, 150)
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -303.0
-offset_top = -89.0
-offset_right = 303.0
-offset_bottom = 89.0
+offset_top = -75.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 128
-text = "win text"
-horizontal_alignment = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[center][rainbow freq=0.5 sat=0.5]win text[/rainbow][/center]"
+scroll_active = false
 
 [node name="FadeTransition" parent="CanvasLayer2" instance=ExtResource("12_d1qbc")]
 custom_minimum_size = Vector2(1152, 648)

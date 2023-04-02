@@ -13,7 +13,5 @@ func _ready():
 func _on_body_entered(player: Player):
 	player.level.fruits_left -= 1
 	_sound_player.play()
-	if player.level.fruits_left == 0:
-		player.level.win()
 	await _sound_player.finished
 	queue_free()

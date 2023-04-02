@@ -3,6 +3,9 @@ class_name Player
 
 @export var _animated_sprite: AnimatedSprite2D
 @export var _audio_player: AudioStreamPlayer
+@export var move_particles: CPUParticles2D
+@export var jump_particles: CPUParticles2D
+@export var jump_particles_2: CPUParticles2D
 
 @export var _dead_players_group: Node
 
@@ -46,8 +49,10 @@ func flip() -> void:
 	var axis = get_axis()
 	if axis > 0:
 		_animated_sprite.flip_h = false
+		move_particles.direction.x = -1
 	elif axis < 0:
 		_animated_sprite.flip_h = true
+		move_particles.direction.x = 1
 
 
 func play_animation(animation: StringName) -> void:

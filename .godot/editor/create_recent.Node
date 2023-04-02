@@ -1,3 +1,5 @@
+RichTextLabel
+CPUParticles2D
 AudioStreamPlayer2D
 Label
 CollisionShape2D
@@ -27,7 +29,4 @@ CharacterBody2D
 StaticBody2D
 Node
 Node2D
-CPUParticles2D
 MeshInstance3D
-SubViewport
-CPUParticles3D
