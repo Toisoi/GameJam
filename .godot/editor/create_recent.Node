@@ -1,8 +1,16 @@
+AudioStreamPlayer
+AnimationPlayer
 Sprite2D
+CanvasLayer
+TextureButton
+TextureRect
+CanvasModulate
+CollisionPolygon2D
+CharacterBody2D
+StaticBody2D
 Node
 Node2D
 AnimatedSprite2D
-AnimationPlayer
 Label
 CPUParticles2D
 MeshInstance3D
@@ -14,9 +22,7 @@ Node3D
 Camera2D
 CollisionShape2D
 Area2D
-CharacterBody2D
 RigidBody2D
 TileMap
 PlayerState
 StateMachine
-StaticBody2D

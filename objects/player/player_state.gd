@@ -13,3 +13,7 @@ func physics_update(_delta):
 		var collision = player.get_slide_collision(index)
 		if collision.get_collider() is DeadPlayer:
 			collision.get_collider().push(-collision.get_normal().x * player.push_strength)
+	
+	player.apply_gravity()
+	player.velocity.x = 0
+	player.move_and_slide()

@@ -1,7 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://gqld7sm0k0sp"]
 
-[ext_resource type="Texture2D" uid="uid://dqis6vwyl34b6" path="res://textures/spikes.png" id="1_5wxta"]
 [ext_resource type="Script" path="res://objects/spikes/spikes.gd" id="1_sybre"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6upjy"]
+load_path = "res://.godot/imported/spikes.png-2f35199f1f8545aadd2d8a02571f6980.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uq3i"]
 size = Vector2(15, 7)
@@ -11,7 +13,7 @@ collision_layer = 4
 script = ExtResource("1_sybre")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_5wxta")
+texture = SubResource("CompressedTexture2D_6upjy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 4.5)

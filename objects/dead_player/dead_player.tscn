@@ -1,21 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6w4vtnb4shfi"]
 
-[ext_resource type="Texture2D" uid="uid://bii2h2d1c1ri7" path="res://icon.svg" id="1_685q0"]
 [ext_resource type="Script" path="res://objects/dead_player/dead_player.gd" id="1_no4gm"]
+[ext_resource type="Texture2D" uid="uid://wqfvush262md" path="res://textures/player.png" id="2_wictl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dyck"]
-size = Vector2(64, 64)
+size = Vector2(24, 19)
 
-[node name="DeadPlayer" type="CharacterBody2D"]
+[node name="DeadPlayer" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+scale = Vector2(4, 4)
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("1_no4gm")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -32)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_685q0")
+position = Vector2(0, -16)
+texture = ExtResource("2_wictl")
+region_enabled = true
+region_rect = Rect2(320, 64, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_8dyck")

@@ -22,18 +22,18 @@ func exit():
 func physics_update(_delta):
 	super.physics_update(_delta)
 	
-	player.apply_gravity()
-	player.apply_movement()
-	
-	player.flip()
-	
-	if Input.is_action_just_pressed("jump") and _fall_jump:
-		state_machine.transition_to("FallJump")
-	
-	player.move_and_slide()
-	
-	if player.is_on_floor():
-		state_machine.transition_to("Idle")
+	if not player.dead:
+		player.apply_movement()
+		
+		player.flip()
+		
+		if Input.is_action_just_pressed("jump") and _fall_jump:
+			state_machine.transition_to("FallJump")
+		
+		player.move_and_slide()
+		
+		if player.is_on_floor():
+			state_machine.transition_to("Idle")
 
 
 func _timeout():

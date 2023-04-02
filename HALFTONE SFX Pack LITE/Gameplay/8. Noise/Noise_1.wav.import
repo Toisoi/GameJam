@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://s5e6my2oekwh"
+path="res://.godot/imported/Noise_1.wav-72034093b95ac042de344d2419d0926b.sample"
+
+[deps]
+
+source_file="res://HALFTONE SFX Pack LITE/Gameplay/8. Noise/Noise_1.wav"
+dest_files=["res://.godot/imported/Noise_1.wav-72034093b95ac042de344d2419d0926b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
