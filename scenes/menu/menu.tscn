@@ -183,9 +183,10 @@ script = ExtResource("17_mic33")
 
 [node name="MusicLabel" type="Label" parent="Settings/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.368627, 0.368627, 0.615686, 1)
 theme_override_font_sizes/font_size = 25
 text = "music"
+uppercase = true
 
 [node name="MusicSlider" type="HSlider" parent="Settings/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -197,9 +198,10 @@ script = ExtResource("10_ul51h")
 
 [node name="SoundLabel" type="Label" parent="Settings/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.368627, 0.368627, 0.615686, 1)
 theme_override_font_sizes/font_size = 25
 text = "sound"
+uppercase = true
 
 [node name="SoundSlider" type="HSlider" parent="Settings/MarginContainer/VBoxContainer"]
 layout_mode = 2

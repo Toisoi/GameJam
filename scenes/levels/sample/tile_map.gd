@@ -17,9 +17,12 @@ func _ready():
 	for cell in cells:
 		match get_cell_source_id(TRAPS_LAYER, cell):
 			SPIKES_ID:
+				var tile_data = get_cell_tile_data(TRAPS_LAYER, cell)
 				set_cell(TRAPS_LAYER, cell)
 				var spikes = _spikes.instantiate()
 				spikes.position = map_to_local(cell)
+				spikes.sprite.flip_h = tile_data.flip_h
+				spikes.sprite.flip_v = tile_data.flip_v
 				add_child(spikes)
 	
 	var used_rect = get_used_rect()

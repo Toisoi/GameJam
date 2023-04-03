@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bdfuvd1j8jwnc"]
+[gd_scene load_steps=23 format=3 uid="uid://bdfuvd1j8jwnc"]
 
 [ext_resource type="Script" path="res://scenes/levels/sample/sample.gd" id="1_fbha7"]
 [ext_resource type="AudioStream" uid="uid://6rf0styjhuru" path="res://resources/sounds/button.wav" id="2_ffbs7"]
@@ -10,7 +10,9 @@
 [ext_resource type="Script" path="res://scenes/levels/sample/menu_button.gd" id="7_jpxrt"]
 [ext_resource type="Texture2D" uid="uid://c4ojcl1kaduhk" path="res://textures/terrain_tileset.png" id="7_wsb4g"]
 [ext_resource type="Texture2D" uid="uid://bkxydf6nkkpj6" path="res://textures/spikes.png" id="8_0gcj7"]
+[ext_resource type="Texture2D" uid="uid://xk4kdunbqrm" path="res://textures/ui/fruit.png" id="9_4y7dl"]
 [ext_resource type="Script" path="res://scenes/levels/sample/tile_map.gd" id="9_5h8yp"]
+[ext_resource type="Texture2D" uid="uid://c1rxjrn6p6tt8" path="res://textures/ui/heart.png" id="9_q5bxu"]
 [ext_resource type="PackedScene" uid="uid://gqld7sm0k0sp" path="res://objects/spikes/spikes.tscn" id="10_y4nbd"]
 [ext_resource type="PackedScene" uid="uid://dwv8vxjudac5g" path="res://objects/player/player.tscn" id="11_sokx2"]
 [ext_resource type="PackedScene" uid="uid://pojmf4m23i0" path="res://addons/fade_transition/fade_transition.tscn" id="12_d1qbc"]
@@ -281,8 +283,8 @@ _win_label = NodePath("CanvasLayer2/WinLabel")
 fade = NodePath("CanvasLayer2/FadeTransition")
 button_sound = ExtResource("2_ffbs7")
 checkpoint_sound = ExtResource("3_qn7if")
-_loose_texts = Array[String](["Not quite there yet.", "Try again.", "Keep going!", "One more time.", "Give it another shot.", "Almost got it!", "Keep pushing.", "Let's try that again.", "Don't give up.", "You can do better.", "Practice makes perfect."])
-_win_texts = Array[String](["You win!", "You nailed it!", "Way to go!", "Excellent work!", "Perfect!", "Bravo!", "Amazing job!", "You crushed it!", "Fantastic!", "Top-notch!", "You're a champion!"])
+_loose_texts = Array[String](["NOT QUITE YET.", "TRY AGAIN.", "KEEP GOING.", "ONE MORE TIME.", "GIVE IT ANOTHER SHOT.", "ALMOST GOT IT.", "KEEP PUSHING.", "LLET's TRY THAT AGAIN.", "DON'T GIVE UP.", "YOU CAN DO BETTER.", "PRACTICE MAKES PERFECT."])
+_win_texts = Array[String](["YOU WIN!", "YOU NAILED IT!", "WAY TO GO!", "EXCELLENT WORK!", "PERFECT!", "BRAVO!", "AMAZING JOB!", "YOU CRUSHED IT!", "FANTASTIC!", "TOP-NOTCH!", "YOU'RE A CHAMPION!"])
 menu = "res://scenes/menu/menu.tscn"
 lives_left = 2
 
@@ -315,23 +317,45 @@ scale = Vector2(4, 4)
 texture_normal = ExtResource("7_4qa1v")
 script = ExtResource("7_jpxrt")
 
+[node name="HeartsTextureRect" type="TextureRect" parent="CanvasLayer2"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+scale = Vector2(2, 2)
+texture = ExtResource("9_q5bxu")
+metadata/_edit_use_anchors_ = true
+
 [node name="LivesLabel" type="Label" parent="CanvasLayer2"]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 237.0
-offset_bottom = 68.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Lives label: %d"
+offset_left = 92.0
+offset_top = 9.0
+offset_right = 119.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0.368627, 0.368627, 0.615686, 1)
+theme_override_font_sizes/font_size = 48
+text = "0"
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="FruitTextureRect" type="TextureRect" parent="CanvasLayer2"]
+offset_left = 5.0
+offset_top = 77.0
+offset_right = 45.0
+offset_bottom = 117.0
+scale = Vector2(2, 2)
+texture = ExtResource("9_4y7dl")
+metadata/_edit_use_anchors_ = true
 
 [node name="FruitsLabel" type="Label" parent="CanvasLayer2"]
-offset_left = 20.0
-offset_top = 88.0
-offset_right = 229.0
-offset_bottom = 136.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Fruits left: %d"
+offset_left = 92.0
+offset_top = 82.0
+offset_right = 119.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.368627, 0.368627, 0.615686, 1)
+theme_override_font_sizes/font_size = 48
+text = "0"
+uppercase = true
+metadata/_edit_use_anchors_ = true
 
 [node name="LooseLabel" type="RichTextLabel" parent="CanvasLayer2"]
 visible = false
@@ -345,7 +369,7 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0.945098, 0.266667, 0.356863, 1)
 theme_override_font_sizes/normal_font_size = 120
 bbcode_enabled = true
-text = "[center][shake rate=100 level=20]loose text[/shake][/center]"
+text = "[center][shake rate=100 level=20]LOOSE TEXT[/shake][/center]"
 fit_content = true
 scroll_active = false
 
@@ -363,7 +387,7 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 120
 bbcode_enabled = true
-text = "[center][rainbow freq=0.5 sat=0.5]win text[/rainbow][/center]"
+text = "[center][rainbow freq=0.5 sat=0.5]WIN TEXT[/rainbow][/center]"
 fit_content = true
 scroll_active = false
 

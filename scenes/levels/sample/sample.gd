@@ -13,8 +13,6 @@ class_name Level
 
 const _LOOSE_TEXT = "[center][shake rate=100 level=20]%s[/shake][/center]"
 const _WIN_TEXT = "[center][rainbow freq=0.5 sat=0.5]%s[/rainbow][/center]"
-const _LIVES_LABEL_TEXT = "Lives left: %d"
-const _FRUITS_LABEL_TEXT = "Fruits left: %d"
 
 @export var _loose_texts: Array[String]
 @export var _win_texts: Array[String]
@@ -27,7 +25,7 @@ const _FRUITS_LABEL_TEXT = "Fruits left: %d"
 	set(value):
 		lives_left = value
 		if _lives_label != null:
-			_lives_label.text = _LIVES_LABEL_TEXT % lives_left
+			_lives_label.text = str(lives_left)
 		
 		if lives_left == 0:
 			_loose_label.text = _LOOSE_TEXT % _loose_texts.pick_random()
@@ -41,7 +39,7 @@ const _FRUITS_LABEL_TEXT = "Fruits left: %d"
 	set(value):
 		fruits_left = value
 		if _fruits_label != null:
-			_fruits_label.text = _FRUITS_LABEL_TEXT % fruits_left
+			_fruits_label.text = str(fruits_left)
 		
 		if fruits_left == 0:
 			_win_label.text = _WIN_TEXT % _win_texts.pick_random()
