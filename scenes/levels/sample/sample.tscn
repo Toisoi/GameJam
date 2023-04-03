@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bdfuvd1j8jwnc"]
+[gd_scene load_steps=21 format=3 uid="uid://bdfuvd1j8jwnc"]
 
 [ext_resource type="Script" path="res://scenes/levels/sample/sample.gd" id="1_fbha7"]
 [ext_resource type="AudioStream" uid="uid://6rf0styjhuru" path="res://resources/sounds/button.wav" id="2_ffbs7"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://8ye5vf2oeqbp" path="res://objects/background/background.tscn" id="4_mud38"]
 [ext_resource type="Texture2D" uid="uid://bqrr36d5fndro" path="res://textures/ui/restart.png" id="5_6ayna"]
 [ext_resource type="Script" path="res://scenes/levels/sample/restart_button.gd" id="6_y4iw6"]
+[ext_resource type="Texture2D" uid="uid://rjgdjqh2h3wf" path="res://textures/ui/Levels.png" id="7_4qa1v"]
+[ext_resource type="Script" path="res://scenes/levels/sample/menu_button.gd" id="7_jpxrt"]
 [ext_resource type="Texture2D" uid="uid://c4ojcl1kaduhk" path="res://textures/terrain_tileset.png" id="7_wsb4g"]
 [ext_resource type="Texture2D" uid="uid://bkxydf6nkkpj6" path="res://textures/spikes.png" id="8_0gcj7"]
 [ext_resource type="Script" path="res://scenes/levels/sample/tile_map.gd" id="9_5h8yp"]
@@ -269,18 +271,19 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_buiy0")
 sources/1 = SubResource("TileSetAtlasSource_ya6es")
 
-[node name="Sample" type="Node2D" node_paths=PackedStringArray("sound_player", "_lives_label", "_fruits_label", "_loose_label", "_win_label", "_fade")]
+[node name="Sample" type="Node2D" node_paths=PackedStringArray("sound_player", "_lives_label", "_fruits_label", "_loose_label", "_win_label", "fade")]
 script = ExtResource("1_fbha7")
 sound_player = NodePath("SoundPlayer")
 _lives_label = NodePath("CanvasLayer2/LivesLabel")
 _fruits_label = NodePath("CanvasLayer2/FruitsLabel")
 _loose_label = NodePath("CanvasLayer2/LooseLabel")
 _win_label = NodePath("CanvasLayer2/WinLabel")
-_fade = NodePath("CanvasLayer2/FadeTransition")
+fade = NodePath("CanvasLayer2/FadeTransition")
 button_sound = ExtResource("2_ffbs7")
 checkpoint_sound = ExtResource("3_qn7if")
 _loose_texts = Array[String](["Not quite there yet.", "Try again.", "Keep going!", "One more time.", "Give it another shot.", "Almost got it!", "Keep pushing.", "Let's try that again.", "Don't give up.", "You can do better.", "Practice makes perfect."])
 _win_texts = Array[String](["You win!", "You nailed it!", "Way to go!", "Excellent work!", "Perfect!", "Bravo!", "Amazing job!", "You crushed it!", "Fantastic!", "Top-notch!", "You're a champion!"])
+menu = "res://scenes/menu/menu.tscn"
 lives_left = 2
 
 [node name="Background" parent="." instance=ExtResource("4_mud38")]
@@ -298,6 +301,19 @@ grow_horizontal = 0
 scale = Vector2(4, 4)
 texture_normal = ExtResource("5_6ayna")
 script = ExtResource("6_y4iw6")
+
+[node name="MenuButton" type="TextureButton" parent="CanvasLayer2"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -84.0
+offset_top = 85.0
+offset_right = -63.0
+offset_bottom = 107.0
+grow_horizontal = 0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("7_4qa1v")
+script = ExtResource("7_jpxrt")
 
 [node name="LivesLabel" type="Label" parent="CanvasLayer2"]
 offset_left = 20.0
@@ -318,6 +334,7 @@ theme_override_font_sizes/font_size = 32
 text = "Fruits left: %d"
 
 [node name="LooseLabel" type="RichTextLabel" parent="CanvasLayer2"]
+visible = false
 custom_minimum_size = Vector2(1152, 150)
 anchors_preset = 14
 anchor_top = 0.5
@@ -325,10 +342,10 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0.945098, 0.266667, 0.356863, 1)
 theme_override_font_sizes/normal_font_size = 120
 bbcode_enabled = true
-text = "[center]loose text[/center]"
+text = "[center][shake rate=100 level=20]loose text[/shake][/center]"
 fit_content = true
 scroll_active = false
 
@@ -356,11 +373,13 @@ offset_left = -576.0
 offset_top = -324.0
 offset_right = 576.0
 offset_bottom = 324.0
+default_cover_duration = 1.5
 default_uncover_duration = 1.5
 initially_covering = true
+cover_transition = 0
 uncover_transition = 0
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("_player_camera")]
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_w1qjm")
 format = 2
@@ -373,6 +392,7 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 script = ExtResource("9_5h8yp")
+_player_camera = NodePath("../Player/Camera2D")
 _spikes = ExtResource("10_y4nbd")
 
 [node name="DeadPlayersGroup" type="Node" parent="TileMap"]
@@ -390,3 +410,6 @@ stream = ExtResource("2_ffbs7")
 script = ExtResource("14_4op41")
 
 [connection signal="pressed" from="CanvasLayer2/RestartButton" to="CanvasLayer2/RestartButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer2/MenuButton" to="CanvasLayer2/MenuButton" method="_on_pressed"]
+
+[editable path="Player"]

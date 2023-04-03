@@ -6,12 +6,12 @@ class_name Level
 @export var _fruits_label: Label
 @export var _loose_label: RichTextLabel
 @export var _win_label: RichTextLabel
-@export var _fade: FadeTransition
+@export var fade: FadeTransition
 
 @export var button_sound: AudioStreamWAV
 @export var checkpoint_sound: AudioStreamWAV
 
-const _LOOSE_TEXT = "[center]%s[/center]"
+const _LOOSE_TEXT = "[center][shake rate=100 level=20]%s[/shake][/center]"
 const _WIN_TEXT = "[center][rainbow freq=0.5 sat=0.5]%s[/rainbow][/center]"
 const _LIVES_LABEL_TEXT = "Lives left: %d"
 const _FRUITS_LABEL_TEXT = "Fruits left: %d"
@@ -21,6 +21,7 @@ const _FRUITS_LABEL_TEXT = "Fruits left: %d"
 @export var _loose_time = 2.0
 @export var _win_time = 2.0
 
+@export_file("*.tscn") var menu = ""
 @export_file("*.tscn") var _next_level = ""
 @export var lives_left = 5:
 	set(value):
@@ -32,8 +33,8 @@ const _FRUITS_LABEL_TEXT = "Fruits left: %d"
 			_loose_label.text = _LOOSE_TEXT % _loose_texts.pick_random()
 			_loose_label.show()
 			await get_tree().create_timer(_loose_time).timeout
-			_fade.cover()
-			await _fade.cover_done
+			fade.cover()
+			await fade.cover_done
 			get_tree().reload_current_scene()
 
 @export var fruits_left = 5:
@@ -48,8 +49,8 @@ const _FRUITS_LABEL_TEXT = "Fruits left: %d"
 			
 			await get_tree().create_timer(_win_time).timeout
 			
-			_fade.cover()
-			await _fade.cover_done
+			fade.cover()
+			await fade.cover_done
 			
 			get_tree().change_scene_to_file(_next_level)
 
@@ -57,7 +58,7 @@ func _ready():
 	lives_left = lives_left
 	fruits_left = fruits_left
 	
-	_fade.uncover()
+	fade.uncover()
 
 
 func play_sound(sound: AudioStreamWAV) -> void:
