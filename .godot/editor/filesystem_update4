@@ -1,8 +1,7 @@
 res://scenes/levels/sample/sample.tscn
 res://resources/themes/theme.tres
 res://scenes/menu/menu.tscn
-res://scenes/levels/sample/sample.gd
-res://objects/spikes/spikes.tscn
-res://objects/spikes/spikes.gd
-res://scenes/levels/sample/tile_map.gd
+res://scenes/levels/4.tscn
 res://scenes/levels/1.tscn
+res://default_bus_layout.tres
+res://scenes/levels/2.tscn
