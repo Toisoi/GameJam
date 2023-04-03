@@ -10,3 +10,5 @@ layer_1/tile_data = PackedInt32Array(589854, 1, 0, 589855, 1, 0, 589856, 1, 0, 5
 
 [node name="Player" parent="." index="3"]
 position = Vector2(192, 384)
+
+[editable path="Player"]

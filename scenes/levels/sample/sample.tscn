@@ -367,12 +367,11 @@ offset_right = 119.0
 offset_bottom = 152.0
 theme_override_colors/font_color = Color(0.368627, 0.368627, 0.615686, 1)
 theme_override_font_sizes/font_size = 48
-text = "0"
+text = "A"
 uppercase = true
 metadata/_edit_use_anchors_ = true
 
 [node name="LooseLabel" type="RichTextLabel" parent="CanvasLayer2"]
-visible = false
 custom_minimum_size = Vector2(1152, 150)
 anchors_preset = 14
 anchor_top = 0.5
