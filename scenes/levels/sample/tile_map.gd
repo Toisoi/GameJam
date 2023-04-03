@@ -21,8 +21,12 @@ func _ready():
 				set_cell(TRAPS_LAYER, cell)
 				var spikes = _spikes.instantiate()
 				spikes.position = map_to_local(cell)
-				spikes.sprite.flip_h = tile_data.flip_h
-				spikes.sprite.flip_v = tile_data.flip_v
+				if tile_data.transpose and tile_data.flip_h:
+					spikes.rotation_degrees = 90
+				elif tile_data.flip_v:
+					spikes.rotation_degrees = 180
+				elif tile_data.transpose:
+					spikes.rotation_degrees = 270
 				add_child(spikes)
 	
 	var used_rect = get_used_rect()

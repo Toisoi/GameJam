@@ -8,10 +8,9 @@ load_path = "res://.godot/imported/spikes.png-2f35199f1f8545aadd2d8a02571f6980.c
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uq3i"]
 size = Vector2(15, 7)
 
-[node name="Spikes" type="Area2D" node_paths=PackedStringArray("sprite")]
+[node name="Spikes" type="Area2D"]
 collision_layer = 4
 script = ExtResource("1_sybre")
-sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("CompressedTexture2D_6upjy")

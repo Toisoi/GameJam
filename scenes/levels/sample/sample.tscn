@@ -259,9 +259,23 @@ texture = ExtResource("7_wsb4g")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya6es"]
 texture = ExtResource("8_0gcj7")
+0:0/next_alternative_id = 4
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/1/transpose = true
+0:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/1/physics_layer_0/angular_velocity = 0.0
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/2/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/2/physics_layer_0/angular_velocity = 0.0
+0:0/3 = 3
+0:0/3/transpose = true
+0:0/3/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/3/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_w1qjm"]
 physics_layer_0/collision_layer = 2
@@ -283,7 +297,7 @@ _win_label = NodePath("CanvasLayer2/WinLabel")
 fade = NodePath("CanvasLayer2/FadeTransition")
 button_sound = ExtResource("2_ffbs7")
 checkpoint_sound = ExtResource("3_qn7if")
-_loose_texts = Array[String](["NOT QUITE YET.", "TRY AGAIN.", "KEEP GOING.", "ONE MORE TIME.", "GIVE IT ANOTHER SHOT.", "ALMOST GOT IT.", "KEEP PUSHING.", "LLET's TRY THAT AGAIN.", "DON'T GIVE UP.", "YOU CAN DO BETTER.", "PRACTICE MAKES PERFECT."])
+_loose_texts = Array[String](["NOT QUITE YET.", "TRY AGAIN.", "KEEP GOING.", "ONE MORE TIME.", "GIVE IT ANOTHER SHOT.", "ALMOST GOT IT.", "KEEP PUSHING.", "LET'S TRY THAT AGAIN.", "DON'T GIVE UP.", "YOU CAN DO BETTER.", "PRACTICE MAKES PERFECT."])
 _win_texts = Array[String](["YOU WIN!", "YOU NAILED IT!", "WAY TO GO!", "EXCELLENT WORK!", "PERFECT!", "BRAVO!", "AMAZING JOB!", "YOU CRUSHED IT!", "FANTASTIC!", "TOP-NOTCH!", "YOU'RE A CHAMPION!"])
 menu = "res://scenes/menu/menu.tscn"
 lives_left = 2

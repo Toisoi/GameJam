@@ -13,7 +13,27 @@ layer_0/tile_data = PackedInt32Array(196608, 131072, 1, 131072, 131072, 1, 65536
 layer_1/tile_data = PackedInt32Array(589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0)
 
 [node name="Fruit" parent="TileMap" index="0" instance=ExtResource("2_uppqt")]
-position = Vector2(112.75, 124)
+position = Vector2(213, 72.75)
 
 [node name="Player" parent="." index="3"]
-position = Vector2(246, 424)
+position = Vector2(193, 469)
+
+[node name="AnimatedSprite2D" parent="Player" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="Player" index="1"]
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" parent="Player" index="2"]
+metadata/_edit_lock_ = true
+
+[node name="MoveParticles" parent="Player" index="5"]
+metadata/_edit_lock_ = true
+
+[node name="JumpParticles" parent="Player" index="6"]
+metadata/_edit_lock_ = true
+
+[node name="JumpParticles2" parent="Player" index="7"]
+metadata/_edit_lock_ = true
+
+[editable path="Player"]
