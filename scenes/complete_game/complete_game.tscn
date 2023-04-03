@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://brarxl57w6omu"]
+
+[ext_resource type="PackedScene" uid="uid://8ye5vf2oeqbp" path="res://objects/background/background.tscn" id="1_7rdk8"]
+[ext_resource type="Script" path="res://scenes/complete_game/complete_game.gd" id="1_q7jlx"]
+[ext_resource type="PackedScene" uid="uid://pojmf4m23i0" path="res://addons/fade_transition/fade_transition.tscn" id="2_log60"]
+
+[node name="CompleteGame" type="Control" node_paths=PackedStringArray("_fade")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q7jlx")
+_fade = NodePath("CanvasLayer/FadeTransition")
+_menu = "res://scenes/menu/menu.tscn"
+
+[node name="Background" parent="." instance=ExtResource("1_7rdk8")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CompleteGameLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -532.0
+offset_top = -90.0
+offset_right = 532.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.368627, 0.368627, 0.615686, 1)
+theme_override_font_sizes/font_size = 86
+text = "congratulations,
+you complete game!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="FadeTransition" parent="CanvasLayer" instance=ExtResource("2_log60")]
+default_cover_duration = 1.5
+default_uncover_duration = 1.5
+initially_covering = true
+cover_transition = 0
+uncover_transition = 0

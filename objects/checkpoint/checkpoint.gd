@@ -9,6 +9,8 @@ var _set_up = false
 
 func _on_body_entered(player: Player):
 	if not _set_up:
+		_set_up = true
+		
 		_particles.emitting = true
 		_animated_sprite.play("flag_out")
 		_level.play_sound(_level.checkpoint_sound)
@@ -16,5 +18,3 @@ func _on_body_entered(player: Player):
 		_animated_sprite.play("normal")
 		
 		player.checpoint_position = global_position
-		
-		_set_up = true

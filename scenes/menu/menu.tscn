@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bbbg11lp7t43o"]
+[gd_scene load_steps=24 format=3 uid="uid://bbbg11lp7t43o"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_aqfx1"]
 [ext_resource type="PackedScene" uid="uid://8ye5vf2oeqbp" path="res://objects/background/background.tscn" id="1_qclrb"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dydspa8leupbs" path="res://textures/ui/play.png" id="3_qdro4"]
 [ext_resource type="Texture2D" uid="uid://cc3msabeh0eko" path="res://textures/levels/3.png" id="4_0loie"]
 [ext_resource type="Texture2D" uid="uid://obif3i8p32b3" path="res://textures/ui/next.png" id="4_88w6v"]
+[ext_resource type="Texture2D" uid="uid://djpeatpa5eypw" path="res://textures/levels/4.png" id="5_trvip"]
 [ext_resource type="Script" path="res://scenes/menu/level_container.gd" id="7_onvm7"]
 [ext_resource type="Theme" uid="uid://dwyiacu1o5fvu" path="res://resources/themes/theme.tres" id="8_3p56f"]
 [ext_resource type="Texture2D" uid="uid://b66qhvy4jo1jj" path="res://textures/ui/back.png" id="8_45thl"]
@@ -37,8 +38,8 @@ menu = NodePath("Menu")
 settings = NodePath("Settings")
 sound_player = NodePath("SoundPlayer")
 fade = NodePath("FadeTransition")
-levels = Array[String](["res://scenes/levels/1.tscn", "res://scenes/levels/2.tscn", "res://scenes/levels/3.tscn"])
-level_textures = Array[Texture]([ExtResource("2_s3sd0"), ExtResource("3_ehx2u"), ExtResource("4_0loie")])
+levels = Array[String](["res://scenes/levels/1.tscn", "res://scenes/levels/2.tscn", "res://scenes/levels/3.tscn", "res://scenes/levels/4.tscn"])
+level_textures = Array[Texture]([ExtResource("2_s3sd0"), ExtResource("3_ehx2u"), ExtResource("4_0loie"), ExtResource("5_trvip")])
 level_preview = ExtResource("2_ygbgw")
 
 [node name="Background" parent="." instance=ExtResource("1_qclrb")]

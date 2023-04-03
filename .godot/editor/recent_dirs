@@ -1,7 +1,10 @@
+D:/projects/godot 4/game_jam/linux
+D:/projects/godot 4/game_jam/windows
 res://scenes/levels
-D:/projects/godot 4/game_jam/export
-res://textures/fruits
+res://scenes/complete_game
 res://scenes/menu
+res://objects/tutorial_label
+res://textures/fruits
 res://textures/levels
 res://scripts
 res://resources/themes

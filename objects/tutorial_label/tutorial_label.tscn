@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjsdivnfx4e71"]
+
+[ext_resource type="Script" path="res://objects/tutorial_label/tutorial_label.gd" id="1_b7nte"]
+
+[node name="TutorialLabel" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_b7nte")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 539.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0.368627, 0.368627, 0.615686, 1)
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

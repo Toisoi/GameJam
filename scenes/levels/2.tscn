@@ -16,57 +16,70 @@ layer_1/tile_data = PackedInt32Array(589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 5
 
 [node name="Fruit" parent="TileMap/FruitGroup" index="0" instance=ExtResource("2_v03vd")]
 position = Vector2(0, 128)
+scale = Vector2(1, 1)
 _type = "cherries"
 
 [node name="Fruit2" parent="TileMap/FruitGroup" index="1" instance=ExtResource("2_v03vd")]
 position = Vector2(16, 104)
+scale = Vector2(1, 1)
 _type = "orange"
 
 [node name="Fruit3" parent="TileMap/FruitGroup" index="2" instance=ExtResource("2_v03vd")]
 position = Vector2(32, 128)
+scale = Vector2(1, 1)
 _type = "cherries"
 
 [node name="Fruit4" parent="TileMap/FruitGroup" index="3" instance=ExtResource("2_v03vd")]
 position = Vector2(64, 128)
+scale = Vector2(1, 1)
 _type = "orange"
 
 [node name="Fruit5" parent="TileMap/FruitGroup" index="4" instance=ExtResource("2_v03vd")]
 position = Vector2(96, 128)
+scale = Vector2(1, 1)
 _type = "cherries"
 
 [node name="Fruit6" parent="TileMap/FruitGroup" index="5" instance=ExtResource("2_v03vd")]
 position = Vector2(400, 144)
+scale = Vector2(1, 1)
 _type = "orange"
 
 [node name="Fruit7" parent="TileMap/FruitGroup" index="6" instance=ExtResource("2_v03vd")]
 position = Vector2(432, 144)
+scale = Vector2(1, 1)
 _type = "cherries"
 
 [node name="Fruit8" parent="TileMap/FruitGroup" index="7" instance=ExtResource("2_v03vd")]
 position = Vector2(368, 144)
+scale = Vector2(1, 1)
 _type = "orange"
 
 [node name="Fruit9" parent="TileMap/FruitGroup" index="8" instance=ExtResource("2_v03vd")]
 position = Vector2(768, 128)
+scale = Vector2(1, 1)
 _type = "cherries"
 
 [node name="Fruit10" parent="TileMap/FruitGroup" index="9" instance=ExtResource("2_v03vd")]
 position = Vector2(640, 128)
+scale = Vector2(1, 1)
 _type = "orange"
 
 [node name="Fruit11" parent="TileMap/FruitGroup" index="10" instance=ExtResource("2_v03vd")]
 position = Vector2(672, 128)
+scale = Vector2(1, 1)
 _type = "cherries"
 
 [node name="Fruit12" parent="TileMap/FruitGroup" index="11" instance=ExtResource("2_v03vd")]
 position = Vector2(704, 128)
+scale = Vector2(1, 1)
 _type = "orange"
 
 [node name="Fruit13" parent="TileMap/FruitGroup" index="12" instance=ExtResource("2_v03vd")]
 position = Vector2(736, 128)
+scale = Vector2(1, 1)
 _type = "cherries"
 
 [node name="Player" parent="." index="3"]
-position = Vector2(640, 512)
+position = Vector2(608, 544)
 
 [editable path="Player"]

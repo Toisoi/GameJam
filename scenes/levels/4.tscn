@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://btvs30klh0e3e"]
+[gd_scene load_steps=3 format=3 uid="uid://c3dvl6a8cppux"]
 
 [ext_resource type="PackedScene" uid="uid://bdfuvd1j8jwnc" path="res://scenes/levels/sample/sample.tscn" id="1_g3vp5"]
 [ext_resource type="PackedScene" uid="uid://ccs0d7e6cyyes" path="res://objects/fruit/fruit.tscn" id="2_0e26v"]
-[ext_resource type="PackedScene" uid="uid://bjipjyerigufs" path="res://objects/checkpoint/checkpoint.tscn" id="3_qa5el"]
 
 [node name="Level4" instance=ExtResource("1_g3vp5")]
+_next_level = "res://scenes/complete_game/complete_game.tscn"
 fruits_left = 26
 
 [node name="TileMap" parent="." index="2"]
@@ -139,10 +139,6 @@ _type = "cherries"
 position = Vector2(656, 480)
 scale = Vector2(1, 1)
 _type = "orange"
-
-[node name="Checkpoint" parent="TileMap" index="2" instance=ExtResource("3_qa5el")]
-position = Vector2(304, 512)
-scale = Vector2(1, 1)
 
 [node name="Player" parent="." index="3"]
 position = Vector2(320, 832)
